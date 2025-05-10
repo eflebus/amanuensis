@@ -1,0 +1,33 @@
+[project]
+name = "amanuensis"
+version = "0.1.0"
+description = "Export highlights and notes from your Kobo eReader as markdown"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+amanuensis = "amanuensis.cli:main"
+
+[tool.uv]
+dev-dependencies = [
+    "coverage>=7.8.0",
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "ruff>=0.11.8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = ["__init__.py", "cli.py"]
+
+[tool.coverage.report]
+precision = 2
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
